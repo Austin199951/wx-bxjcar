@@ -1,0 +1,5 @@
+.orderinform{background:#f4f4f4;border:1px solid #e0e0e0; padding:20rpx;}
+.orderinform .order_tit{font-size:34rpx;}
+.orderinform .msg{font-size:30rpx;text-indent:60rpx; margin-top:15rpx;}
+.orderinform .company{margin-top:80rpx;}
+.orderinform .time{font-size: 27rpx;color:#5a5a5a; margin-top:15rpx;}

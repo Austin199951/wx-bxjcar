@@ -1,0 +1,16 @@
+.addr{position: absolute;height:68rpx;background:rgba(0,0,0,0.3); z-index:1; line-height:68rpx;padding-left:20rpx;letter-spacing: 2rpx;}
+.sell_models{height:145rpx;font-size:48rpx;letter-spacing:4rpx; line-height: 145rpx; padding-left:20rpx;}
+.models_list{margin-bottom:10rpx;}
+.index_banner{height: 668rpx;background:#efefef;}
+.index_banner .banner_picture{height:100%;}
+.tip_text{bottom:40rpx;}
+.tip_text view{font-size:34rpx;margin-bottom:15rpx;color:white;} 
+.tip_text text{font-size:28rpx;}
+.model_icon1{width:55rpx;height:55rpx;}
+.model_icon2{width:100rpx;height:36rpx;}
+.hint{bottom:25rpx;font-size:34rpx;}
+.hint text{font-size:26rpx;color:#5a5a5a;margin-top:10rpx;}
+.sale_mod{height:428rpx; box-shadow:5px 5px 8px #ebebeb,-5px -5px 8px #ebebeb;margin:15rpx 0;}
+.sale_mod .banner_pic{height:70%;}
+
+.introduce{padding:20rpx;}

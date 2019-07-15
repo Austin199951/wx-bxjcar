@@ -1,0 +1,13 @@
+<block wx:for="{{orderInform}}" wx:key="key">
+  <view class='w90 margin_top orderinform'>
+    <label class='onShow order_tit'>尊敬的会员{{item.username}}</label> 
+    <text class='msg onShow'>{{item.description}}</text>
+    <text class='text_right company onShow'>百姓家</text>
+    <text class='text_right time onShow'>{{item.add_time}}</text>
+  </view>
+</block>
+
+<view class='onShow text_center no_notice' wx:if="{{orderInform.length == 0}}">
+  <image src='../../images/notice.png'></image>
+  <text class='onShow'>暂无下单通知</text> 
+</view>

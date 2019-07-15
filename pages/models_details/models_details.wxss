@@ -1,0 +1,32 @@
+.car_count{width:167rpx;height:58rpx;border-radius: 8rpx;background:#091849;color:white;line-height:58rpx;}
+.parameter_config .config_tit,.parameter_config .config_small_tit{border-bottom:1rpx solid #efefef;font-weight: bold; padding:30rpx 0;}
+.parameter_config .config_tit1{padding:0 20rpx;height:88rpx;line-height: 88rpx;background:#f6f9ff;font-weight: bold;}
+
+.parameter_config .details{line-height:55rpx;padding:20rpx 0 30rpx;border-bottom:1px solid #efefef;}
+.parameter_config .config_small_tit:last-child,.parts_list:last-child{border:none;}
+
+.goods_nav{background:#4f4e4e;height:98rpx;line-height: 98rpx;color:white;}
+.goods_nav label{ height:100%;}
+.standard_colors radio,.all_config radio,.standard_colors checkbox{right:-5rpx;bottom:-8rpx;z-index: 3;}
+.standard_colors{width:100rpx;height:100rpx;border:1px solid #b3b3b3; margin-right:10rpx; z-index: 1;}
+.details>label{margin-bottom:20rpx;}
+.custom_colors text{background: #f5f6fa;padding:5rpx 20rpx;border-radius: 5prx;margin-right:20rpx;}
+
+.all_config{width:135rpx;height:135rpx;margin:20rpx 20rpx 0 0;}
+.all_config image{width:100%;height:100%;}
+.parts{width:84%;line-height:45rpx;}
+.ellipsis3{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
+.parts_list{border-bottom:1px solid #efeff4;padding:10px 0;}
+.seat{width:180rpx;height:170rpx; overflow: hidden;}
+.seat_parts{width:52%;line-height:50rpx;}
+.details radio,.details checkbox{zoom:70%;}
+.parts_state{border-bottom:1px solid #e5e5e5;padding:15rpx 0;}
+.num{margin-top:15rpx;}
+.num input{background:#efeff4;border:1px solid #e5e5e5;width:100rpx;height:48rpx; padding:0 15rpx;margin:0 10rpx;}
+
+.index_banner{height:380rpx;}
+.standard_colors image{width:100%;height:100%;}
+
+.border_bottom{margin-bottom:30rpx;}
+.introduce{text-indent: 2em;font-size:28rpx;margin-top:10rpx;}
+.store_up{width:50rpx;height:90rpx;}

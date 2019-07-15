@@ -1,0 +1,14 @@
+page{background:#efeff4;}
+.user_info{height:200rpx;}
+.user_total{height:112rpx;width:112rpx;border-radius:100%;overflow:hidden;font-size:32rpx;margin:0 20rpx;}
+.user_total image{width:100%;height:100%;}
+.user_info_r{width:70%;}
+.user_name{margin-bottom:25rpx;}
+.user_icon{width:50rpx;height:50rpx;margin-right:20rpx;}
+.user_msg{margin-top:21rpx;}
+.user_msg label{font-size:32rpx;height:83rpx;}
+.edit_icon{width:35rpx;height:35rpx; margin-left:20rpx;}
+
+.order_img{width:280rpx;}
+.order_info{font-size:26rpx;}
+.scroll_box{height:270rpx;}

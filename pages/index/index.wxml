@@ -1,0 +1,38 @@
+<view class="cover position_fixed onHide{{showView ? 'onShow' : ''}}"></view>
+<view class="position_fixed bg_white config_cover onHide{{showView ? 'onShow' : ''}}">
+  <view class='introduce onShow'>奥创车汇是隶属于广东百姓家网络科技股份有限公司的一家集欧洲及中东等地区进口汽车销售的综合服务型平台。目前已经取得宝马、保时捷、奥迪、法拉利、奔驰、雷克萨斯等知名品牌的地区经营权。凭借“千里之行，始于足下”的人性化经营理念，在广东本地建立了良好的企业形象及口碑，奥创行天下，相伴千万家。选择奥创车汇，体验与众不同的品质生活。</view>
+  <image src='../../images/close.png' bindtap='close' class='close position_absolute'></image>
+</view>
+
+<!-- 轮播 -->
+<view class='addr color_white' style='width:97%'>佛山市顺德区怡和中心</view>
+<swiper indicator-dots='{{indicatorDots}}' indicator-active-color='#fff' indicator-color='#9b9b9b' class='index_banner position_relative' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+  <block wx:for="{{indexBanner}}" wx:key='key'>
+    <swiper-item>
+      <navigator url="{{item.link}}" class='banner_picture'>
+        <image src="{{item.image}}" style='display:initial' mode='aspectFill'/>
+      </navigator>
+      <view class='position_absolute tip_text padding'>
+        <view class='flex_start' style='font-weight:bold;'>
+          <image src='../../images/arrow_left.png' class='arrow_l_r margin_right'></image>{{item.name}}
+        </view>
+        <text class='onShow' style='margin-left:35rpx;font-weight:bold;'>{{item.description}}</text>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 主营车型 -->
+<view class='sell_models'>在售车型</view>
+
+<block wx:for="{{saleModel}}" wx:for-index="key" wx:key='key'>
+  <navigator class='w90 flex_space_bet models_list padding' data-arr_key="{{key}}" data-brand_id="{{item.brand_id}}" url='../series/series?brand_id={{item.brand_id}}'>
+    <view class='flex_start'>
+      <!-- {{item.iconClass}}  -->
+      <image src="{{item.img}}" class='margin_right model_icon1' mode='aspectFit'></image>{{item.name_cn}}
+    </view>
+    <image src='../../images/arrow_r_g.png' class='arrow_l_r'></image>
+  </navigator> 
+</block>
+
+<image src='../../images/advert.png' class='w100' style='height:230rpx;' bindtap='introduce'></image>

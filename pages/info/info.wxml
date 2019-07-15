@@ -1,0 +1,31 @@
+<!-- 消息通知 -->
+<navigator class='w95 info' url='../order_schedule/order_schedule' bindtap='msg1'>
+    <view class='flex_start'>
+      <image src='../../images/schedule.png'></image> 
+      <text class='ellipsis1'>进度通知</text>
+      <block wx:if="{{unread.order_notice_read == 0}}">
+        <text class='unread'></text>
+      </block>
+    </view>
+    <label class='ellipsis1' wx:if="{{notice.length == 0}}">暂无进度通知</label>
+    <label class='ellipsis1'>{{notice}}</label>
+</navigator>
+
+
+<navigator class='w95 info' url='../orderinform/orderinform'  bindtap='msg2'>
+  <view class='flex_start'>
+    <image src='../../images/msg.png'></image> 
+    <text class='ellipsis1'>官方通知</text>
+    <block wx:if="{{unread.notice_read == 0}}">
+      <text class='unread'></text>
+    </block>
+  </view>
+  <label class='ellipsis1' wx:if="{{orderNotice.length == 0}}">暂无官方通知</label>
+  <label class='ellipsis1'>{{orderNotice}}</label>
+</navigator>
+
+    
+
+
+<!-- 客服 -->
+<navigator class='service' url='../service/service'><image src='../../images/service.png'></image></navigator>

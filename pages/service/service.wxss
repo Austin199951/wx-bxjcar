@@ -1,0 +1,13 @@
+.service .mobile{background:#09bb07;margin-top:210rpx;}
+.service .mobile image{width:48rpx;height:48rpx;}
+.service>view{height:88rpx;border-radius: 10rpx;color:white;font-size:36rpx;letter-spacing: 2rpx; position: relative;}
+.service .message{background:#4b82ff;margin-top:108rpx;}
+.service .message image{width:50rpx;height:50rpx;}
+.service>view image{margin-right:37rpx;}
+.message .contact{position: absolute;z-index:5;height:100%; opacity: 0;}
+
+.cover{position:fixed;width:100%;height:100%;top:0px;background:rgba(0,0,0,0.3);z-index: 2;}
+.cover_center{height:342rpx;position: absolute;left:50%;bottom:22rpx;transform: translateX(-50%);}
+.tel{height:217rpx;border-radius: 30rpx;overflow:hidden;}
+.tel text,.cancel{height: 108rpx;color:#0076ff;line-height:108rpx;border-top:1px solid #e0e0e3;font-size:36rpx;}
+.cancel{display: block;border-radius:30rpx;border:none;margin-top:22rpx;}

@@ -1,0 +1,11 @@
+/* 汇总 */
+.summary{line-height:60rpx;}
+.standard_colors image{width: 100%;height:100%;z-index: 2;}
+.border_bottom{border-bottom:1px solid #efeff4;padding-bottom:20rpx;}
+.collect_img{height:380rpx;}
+.summary_tit{border-bottom:1px solid #e5e5e5;font-size:36rpx;margin-bottom:15rpx;}
+.summary .font_bold{font-size:32rpx;}
+.summary{font-size:30rpx;}
+.illustrate{margin-top:30rpx;}
+.illustrate text{font-size:32rpx;color:#333;font-weight: bold;}
+.tel{border-radius: 10rpx; height:68rpx;padding:0 20rpx;margin-left:20rpx;width:70%;border:#e0e0e0 1px solid;}

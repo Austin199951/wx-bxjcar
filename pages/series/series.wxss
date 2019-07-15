@@ -1,0 +1,12 @@
+page{background: #efefef;}
+.series_list {margin-top:20rpx;}
+.flat_patt label{height:300rpx;width: 100%;}
+.series_tit{font-size:37rpx;margin:20rpx 0;}
+.order_img image{width:100%;height:100%;}
+.scroll_box_item view.w100{word-wrap:break-word;padding:0rpx 20rpx;}
+.padding{padding:20rpx;}
+.scroll_box_item{border:1px solid #cfcfcf;}
+.samllcar{width:185rpx;height:75rpx;}
+.order_img{margin:0px;border:none;}
+.introduce{overflow: scroll; max-height:800rpx;}
+.introduce::-webkit-scrollbar{display: none;}

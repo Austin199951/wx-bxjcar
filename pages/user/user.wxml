@@ -1,0 +1,79 @@
+<view class="cover position_fixed" style='display:{{display}}'></view>
+<!-- 完善资料 -->
+<view class="position_fixed bg_white config_cover onHide{{hiddenmodalput ? 'onShow' : ''}}">
+  <view class='config_cont'>
+    <text class='text_center onShow'>{{modelTitle}}</text>
+    <input bindinput='iPhoneNum' value='{{mobile}}' type='number' placeholder="请输入手机号码..."  class='margin_top'/>
+  </view>
+  <view class='config_nav confirm w100 text_center' bindtap="confirm">确认</view>
+</view>
+
+<!-- 资料修改 -->
+<!-- <view class="position_fixed bg_white config_cover onHide{{edit_tel ? 'onShow' : ''}}">
+  <view class='config_cont'>
+    <text class='text_center onShow'>{{modelTitle}}</text>
+    <input bindinput='edittel' data-telVal='{{tel}}' value='{{tel}}' type='number' placeholder="请输入手机号码..." auto-focus class='margin_top'/>
+  </view>
+
+  <view class='config_nav flex_space_bet position_absolutet'>
+    <text class='text_center onShow' bindtap='close'>取消</text>
+    <text class='text_center confirm onShow' data-telVal='{{tel}}' bindtap="sure">确认</text>
+  </view>
+</view> -->
+
+
+<!-- 用户信息 -->
+<view class='user_info bg_white flex_start'>
+    <open-data type="userAvatarUrl"  class='user_total'></open-data>
+    <view class='w80'>
+      <open-data type="userNickName" class='w100 user_name ellipsis1 onShow'></open-data>
+      
+      <!-- <view bindtap='perfect_info' wx:if="{{tel.length == 0}}">
+        <view class='flex_start'>
+          完善资料<image class='edit_icon' src='../../images/edit_icon.png'></image>
+        </view>
+      </view> -->
+
+      <!-- <text>{{tel}}</text> -->
+    </view>
+</view>
+
+<!-- 我收藏的 -->
+<view class='favorite user_msg bg_white'>
+  <view class='w95'>
+    <label class='flex_start'> <image src='../../images/favorite.png' class='user_icon'></image>我收藏的</label>
+    <block wx:if="{{myCollection.length != 0}}">
+      <scroll-view scroll-x class="scroll_box w100">
+        <block wx:for="{{myCollection}}" wx:key="key">
+          <navigator class="scroll_box_item overflow" url='../models_details/models_details?model_id={{ item.model_id}}'>
+            <view class='order_img flex_center'><image src='{{item.img}}'></image></view>
+            <text class='onShow'>{{item.name_cn}}</text>
+            {{item.min_price}}万
+          </navigator>
+        </block>
+      </scroll-view> 
+    </block>
+  </view>
+</view>
+
+
+<!-- 我的订单进度 -->
+<view class='order_schedule user_msg bg_white'>
+  <view class='w95'>
+    <label class='flex_start'> 
+      <image src='../../images/order.png' class='user_icon'></image>我的订单进度
+    </label>
+    <block wx:if="{{showOrder.length != 0}}">
+      <navigator class='order flex_start1' url='../order_schedule/order_schedule'>
+        <view class='order_img'><image mode='aspectFit' src='{{showOrder.img}}'></image></view>
+        <view class='order_info'>
+          <text class='w100 onShow'>{{showOrder.description}}</text>
+          下单时间：{{showOrder.add_time}}
+        </view>
+      </navigator>
+    </block>    
+  </view>
+</view>
+
+        
+<!-- <button open-type='getPhoneNumber' bindgetphonenumber='getTel'>getPhoneNumber</button> -->

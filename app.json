@@ -1,0 +1,40 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/user/user",
+    "pages/info/info",
+    "pages/orderinform/orderinform",
+    "pages/collect/collect",
+    "pages/models_details/models_details",
+    "pages/service/service",  
+    "pages/order_schedule/order_schedule",
+    "pages/series/series"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "奥创名车汇",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "selectedColor": "#111",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/index.png",
+      "selectedIconPath": "images/index_cur.png"
+    },
+    {
+      "pagePath": "pages/info/info",
+      "text": "消息",
+      "iconPath": "images/info.png",
+      "selectedIconPath": "images/info_cur.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "images/me.png",
+      "selectedIconPath": "images/me_cur.png"
+    }]
+  }
+}

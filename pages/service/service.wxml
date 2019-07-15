@@ -1,0 +1,18 @@
+<!-- 完善资料遮幕 -->
+<view class="cover　onHide{{viewShow ? '' : 'onShow'}}">
+  <view class='cover_center w90'>
+    <view class='bg_white tel text_center'>
+       <text bindtap='tel' data-text='0757-2639-0586' class='onShow'>0757-2639-0586</text> 
+       <text bindtap='tel1' data-text='18125653590' class='onShow'>18125653590</text> 
+    </view>
+    <label class="cancel bg_white w100 text_center" bindtap='cancel'>取消</label>
+  </view>
+</view>
+
+<view class='w95 service'>
+  <view class='mobile flex_center' bindtap='mobile'> <image src='../../images/mobile.png'></image> 电话咨询</view>
+  <view class='message flex_center'>
+    <button open-type='contact' type='primary' class='contact w100'></button>
+    <image src='../../images/consult.png'></image> 留言咨询
+  </view> 
+</view>

@@ -1,0 +1,76 @@
+<!-- 遮幕 -->
+<view class="cover position_fixed onHide{{showView ? 'onShow' : ''}}"></view>
+<view class="position_fixed bg_white config_cover onHide{{showView ? 'onShow' : ''}}">
+  <view class='config_cont'>
+    {{doubtInfo.name_cn}}
+      <view class='config_picture flex_center'>
+        <image src='{{doubtInfo.img}}'></image>
+      </view>
+      <text>{{doubtInfo.ins_cn}}</text>
+  </view>
+  <image src='../../images/close.png' bindtap='close' class='close position_absolute'></image>
+</view>
+
+<modal hidden="{{placeorder}}" title="留下个人信息" confirm-text="确认"  bindconfirm="confirm" bindcancel="cancel">
+  <view class='flex_start margin_top w100'>姓名<input value='{{username}}' bindinput='bindusername'  placeholder='请输入姓名' class='tel'></input>
+  </view> 
+  <view class='flex_start margin_top w100'>
+    <text style='margin-right:8rpx;'>电话</text>
+    <input style='margin-left:15rpx;width:69.8%;' value='{{mobile}}' class='tel' bindinput='bindmobile' class='tel' placeholder='请输入电话'></input>
+  </view>
+</modal>
+
+<view class='position_fixed w100 bg_white' style='z-index:6;'>
+  <!-- 轮播 -->
+  <view class='collect_img w100 overflow flex_center'>
+    <image src='{{collectConfig.summary_image[0]}}' mode='aspectFill'></image>
+  </view>
+  
+
+  <!-- 车信息 -->
+  <view class='vehicle_info flex_space_bet bg_white'>
+    <view>
+      {{collectConfig.model_info.name_cn}}
+      <label class='onShow'>${{collectConfig.model_info.total_price_wan }}万</label>
+    </view>
+    <!-- <view class='collect text_center' data-model_id='{{collectConfig.category_info[0].model_id}}' bindtap='collect'>
+      <view style="background:url({{collect_bg}})center no-repeat;background-size:90%;"></view>收藏
+    </view> -->
+  </view>
+  <text class='config_tit onShow font_bold'>配置汇总</text>
+</view>
+
+
+<!-- 汇总配置 -->
+<view class='parameter_config position_relative' style='top:600rpx;'>
+  <view class='w95 summary'>
+    <block wx:for="{{collectConfig.category_info}}" wx:for-index="info_key" wx:key="key" wx:for-item="ci_item">
+       <text class='onShow font_bold'>{{ci_item.name_cn}}</text> 
+
+      <block wx:for="{{ci_item.group_info}}" wx:for-index="group_key" wx:key="key" wx:for-item="group_item">
+        <label>
+          <block wx:for="{{group_item.detail_info}}" wx:key="key" wx:for-index="detail_key" wx:for-item="detail_item">
+            <view class='flex_space_bet'>
+              {{detail_item.name_cn}} 
+              <image src='../../images/doubt.png' data-di_id='{{detail_key}}' data-ci_id='{{info_key}}' data-gi_id='{{group_key}}' class='doubt' bindtap='doubt'></image>
+            </view>
+
+            <text class='summary_tit flex_end'>${{detail_item.price}}</text>
+          </block>
+          
+           
+        </label>
+      </block>
+
+    </block>
+  </view>
+
+  <view class='w95 illustrate'>
+    <text class='onShow'>价格汇总：</text>
+    <view class='text_right'>USD：{{ collectConfig.model_info.total_price_wan }}万</view>
+    <view class='text_right'>折合人民币约：{{collectConfig.exchange_rate.reference_price}}万</view>
+    <view class='text_right'>(当前汇率为：{{collectConfig.exchange_rate.mid_price}})</view>
+    <view style='color:red' class='text_right'>(不含税与入户费)</view>
+  </view>
+  <text class='submit_order text_center onShow' bindtap='submitOrder'>提交订单</text>
+</view>

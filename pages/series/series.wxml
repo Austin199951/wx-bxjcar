@@ -1,0 +1,40 @@
+<view class="cover position_fixed onHide{{showView ? 'onShow' : ''}}"></view>
+<view class="position_fixed bg_white config_cover onHide{{showView ? 'onShow' : ''}}">
+  <view class='introduce onShow padding'>奥创车汇是隶属于广东百姓家网络科技股份有限公司的一家集欧洲及中东等地区进口汽车销售的综合服务型平台。目前已经取得宝马、保时捷、奥迪、法拉利、奔驰、雷克萨斯等知名品牌的地区经营权。凭借“千里之行，始于足下”的人性化经营理念，在广东本地建立了良好的企业形象及口碑，奥创行天下，相伴千万家。选择奥创车汇，体验与众不同的品质生活。</view>
+  <image src='../../images/close.png' bindtap='close' class='close position_absolute'></image>
+</view>
+
+<view style='margin-bottom:4rem;'>
+<block wx:for="{{series}}" wx:key='{{key}}' wx:for-index="key" wx:for-item="series_item">
+  <view class='series_list  padding bg_white position_relative' data-series_index='{{key}}'>
+    <view class='flat_patt'  bindtap='moreCar' data-arr_key='{{key}}' data-series_id='{{series_item.series_id}}'>
+      <label class='flex_center overflow'><image src='{{series_item.img}}' mode='aspectFill'></image></label>
+      <text class='onShow series_tit'>{{series_item.name_cn}}</text>
+    </view>
+    <!-- <view class='flex_space_bet' hidden='{{item.hidden}}'>
+      <text class='onShow series_tit'>{{item.name_cn}}</text>
+      <label class='flex_center overflow samllcar'>
+        <image src='{{item.img}}'></image>
+      </label>
+    </view> -->
+    <view class='flex_space_bet'>
+      <text class='color_red'>${{series_item.min_price}}万起</text>
+      <label bindtap='moreCar' data-arr_key='{{key}}' data-series_id='{{series_item.series_id}}'>更多车型 <image src='../../images/unfold.png' class='unfold'></image></label>
+    </view>
+  </view>
+  <template is="carModelFor" wx:if="{{series_item.model_info.length != 0}}" data="{{d:series_item.model_info, h:series_item.hidden,k:key}}" />
+</block>
+<template name="carModelFor">
+  <scroll-view scroll-x class="scroll_box padding bg_white" bindscroll="scroll" hidden='{{h}}'>
+    <block wx:for="{{d}}" wx:key="key" wx:for-item="di_item">
+      <navigator class='scroll_box_item' url='../models_details/models_details?model_id={{di_item.model_id}}&img={{di_item.img}}'>
+        <view class='order_img flex_center'><image src='{{di_item.img}}' mode='aspectFill'></image></view>
+        <view class='w100 ellipsis2'>{{di_item.name_cn}}</view>
+        <view class="onShow w100 color_red">${{di_item.model_price}}万</view>
+      </navigator>
+    </block>
+  </scroll-view> 
+</template>
+
+<image src='../../images/advert.png' class='w100' style='height:230rpx;' bindtap='introduce'></image>
+</view>

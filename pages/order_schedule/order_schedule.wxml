@@ -1,0 +1,28 @@
+<block wx:for="{{showOrder}}">
+  <view class="w95 order_schedule bg_white">
+    <view class='order_img position_relative'>
+      <image src='{{item.img}}' class='order_image'></image>
+      <image src='../../images/successful_reservation.png' class='position_absolute succ_booking'></image>
+    </view>
+    <view class='order_info'>
+    <text>{{item.description}}</text>
+      <!-- <label class='w100 flex_start'>
+        <image src='../../images/automobile.png' style='width:42rpx;height:20rpx;'></image>
+        车型：{{item.model_name}}
+      </label> -->
+        <!-- <label class='w100 flex_start'>
+        <image src='../../images/predict.png' class='date_time'></image>
+        预计生产完成日期：{{item.production_time}}
+      </label>  -->
+      <label class='w100 flex_start'>
+        <image src='../../images/order_time.png' class='date_time'></image>
+        下单日期：{{item.add_time}}
+      </label>
+    </view>
+  </view>
+</block>
+
+<view class='onShow text_center no_notice' wx:if="{{showOrder.length == 0}}">
+  <image src='../../images/notice.png'></image>
+  <text class='onShow'>暂无订单进度</text> 
+</view>

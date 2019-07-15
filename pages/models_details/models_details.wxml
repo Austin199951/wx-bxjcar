@@ -1,0 +1,197 @@
+<!-- 遮幕 -->
+<view class="cover position_fixed onHide{{showView ? 'onShow' : ''}}"></view>
+<view class="position_fixed bg_white config_cover onHide{{showView ? 'onShow' : ''}}">
+  <view class='config_cont'>
+  <block wx:for="{{detailsInfo}}" wx:key="key">
+    {{item.detail_name}}
+      <!-- <view class='config_picture flex_center'><image src='{{item.detail_img}}'></image></view> -->
+      <text class='introduce onShow'>{{item.detail_inscn}}</text>
+      <!-- <view class='flex_start num'>数量<input></input>￥0</view> -->
+    </block>
+  </view>
+  <image src='../../images/close.png' bindtap='close' class='close position_absolute'></image>
+  <!-- <view class='config_nav flex_space_bedoubt position_absolutet'>
+    <text class='text_center'>取消</text>
+    <text class='text_center confirm'>更改配置</text>
+  </view> -->
+  
+  <!-- <view class='config_nav confirm w100 text_center'>返回</view> -->
+</view>
+<view class="cover position_fixed onHide{{detailDoub ? 'onShow' : ''}}"></view>
+<view class="position_fixed bg_white config_cover onHide{{detailDoub ? 'onShow' : ''}}">
+  <view class='config_cont'>
+  <block wx:for="{{doubtDetails}}" wx:key="key">
+    {{item.name_cn}}
+      <!-- <view class='config_picture flex_center'><image src='{{item.img}}'></image></view> -->
+      <text class='onShow introduce'>{{item.ins_cn}}</text>
+    </block>
+  </view>
+  <image src='../../images/close.png' bindtap='close1' class='close position_absolute'></image>
+</view>
+
+<view class='position_fixed w100 bg_white' style='z-index:6;'>
+ <!-- 导航 
+  <view class='flex_space_bet goods_nav'>
+    <block wx:for="{{carImage}}" wx:key="key" wx:for-index="key">
+    <label class='text_center w100' style="{{key == imageIndex ? 'background:#af2027;' : ''}}"  bindtap='changeImgIndex' data-img_idx='{{key}}' wx:if="{{carImage.length == 1}}">{{item.name_cn}}</label>
+
+    <label class='text_center w50' style="{{key == imageIndex ? 'background:#af2027;' : ''}}"  bindtap='changeImgIndex' data-img_idx='{{key}}' wx:if="{{carImage.length == 2}}">{{item.name_cn}}</label>
+    <label class='text_center w33' style="{{key == imageIndex ? 'background:#af2027;' : ''}}"  bindtap='changeImgIndex' data-img_idx='{{key}}' wx:if="{{carImage.length == 3}}">{{item.name_cn}}</label>
+    <label class='text_center w25' style="{{key == imageIndex ? 'background:#af2027;' : ''}}"  bindtap='changeImgIndex' data-img_idx='{{key}}' wx:if="{{carImage.length == 4}}">{{item.name_cn}}</label>
+    <label class='text_center w20' style="{{key == imageIndex ? 'background:#af2027;' : ''}}"  bindtap='changeImgIndex' data-img_idx='{{key}}' wx:if="{{carImage.length == 5}}">{{item.name_cn}}</label>
+    <label class='text_center w16' style="{{key == imageIndex ? 'background:#af2027;' : ''}}"  bindtap='changeImgIndex' data-img_idx='{{key}}' wx:if="{{carImage.length == 6}}">{{item.name_cn}}</label>
+    </block>
+  </view>
+  -->
+
+  <!-- 轮播 -->
+  <swiper indicator-dots='indicatorDots' indicator-active-color='#fff' indicator-color='#9b9b9b' class='index_banner' autoplay="{{autoplay}}" interval="{{interval}}" current='{{swiper_current}}' duration="{{duration}}">
+    <block wx:for="{{carImage}}" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" mode='aspectFill' class='w100'/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+
+  <!-- 车信息 -->
+  <view class='vehicle_info flex_space_bet bg_white'>
+    <view>
+      {{carConfig.name_cn}}
+      <label class='onShow'>${{total_price}}万</label>
+    </view>
+    <view class='collect text_center' bindtap='collect'>
+      <view>
+        <image src='{{collect_bg}}' class='store_up'></image>
+      </view>
+      <!-- <view style="background:url()center no-repeat;background-size:90%;"></view> -->
+      收藏
+    </view>
+      
+  </view>
+</view>
+
+<!-- 车配置 -->
+<view class='position_relative carcon'>
+<block wx:for="{{carConfig.cat_info}}" wx:for-index="cat_index" wx:for-item="cat_item" wx:key="cat_index">
+  <view class='parameter_config'>
+    <text class='config_tit1 onShow' data-has_img='{{cat_item.has_img}}'>{{cat_item.name_cn}}</text>
+
+    <view class='w95'>
+      <block wx:for="{{cat_item.group_info}}" wx:for-index="group_index" wx:for-item="group_item" wx:key="group_index">
+        <label bindtap='selectConfigItem' data-cat_idx='{{cat_index}}' data-group_idx='{{group_index}}' class='flex_space_bet config_small_tit'>
+          <text class='onShow w85'>{{group_item.name_cn}}</text>
+          <image src='../../images/unfold.png' class='unfold'></image>
+        </label>
+        <!-- 单选radio模块 -->
+        <template wx:if="{{group_item.show_type == 2 && group_item.multi_choose == 0}}" is="singleRadio" data="{{d:group_item.detail_info,c_idx:cat_index,g_idx:group_index, h:group_item.hidden,g_item:group_item}}"/>
+
+        <!-- 多选radio模块 -->
+        <template wx:if="{{group_item.show_type == 1 && group_item.multi_choose == 0}}" is="muchRadio" data="{{d:group_item.detail_info,c_idx:cat_index,g_idx:group_index, h:group_item.hidden,g_item:group_item}}"/>
+        
+        <!-- 单选checkBox模块 -->
+        <template wx:if="{{group_item.show_type == 2 && group_item.multi_choose == 1}}" is="singleCheckBox" data="{{d:group_item.detail_info,c_idx:cat_index,g_idx:group_index,h:group_item.hidden, g_item:group_item}}"></template>
+
+        <!-- 多选checkBox模块 -->
+        <template wx:if="{{group_item.show_type == 1 && group_item.multi_choose == 1}}" is="muchCheckBox" data="{{d:group_item.detail_info,c_idx:cat_index,g_idx:group_index,h:group_item.hidden, g_item:group_item}}"></template>
+
+      </block>
+
+      <!-- 加载radio模块 -->
+      <template name="singleRadio">
+        <view class='details position_relative' hidden='{{h}}'>
+         <radio-group bindchange="selectHandler" data-c_idx="{{c_idx}}" data-detail_img="{{g_item.detail_img}}" data-g_idx="{{g_idx}}">
+
+          <view class='flex_space_bet' style='align-items:flex-start'>
+            <view style='width:85%;'>{{g_item.detail_name}}-${{g_item.detail_price}}</view>
+            <image src='../../images/doubt.png' bindtap='doubtdetail' data-namecn='{{g_item.detail_name}}' data-img='{{g_item.detail_img}}' class='doubt position_absolute' data-c_idx="{{c_idx}}" data-g_idx="{{g_idx}}"></image>
+          </view>
+ 
+          <view class='border_bottom flex_start_wrap'>
+            <block wx:for="{{d}}" wx:key="key" wx:for-item="cfg_item" wx:for-index="detail_index">
+              <label class="standard_colors onShow position_relative" data-is_default='{{cfg_item.is_default}}' data-config_id='{{cfg_item.config_id}}'> 
+                  <image src='{{cfg_item.img}}' data-s_img='{{cfg_item.s_img}}' class='position_absolute'></image>
+                  <radio color="#af2027" class='position_absolute' value="{{cfg_item.config_id}}" checked='{{cfg_item.is_check == 1}}'></radio>
+              </label>
+ 
+            </block>
+          </view> 
+        </radio-group>
+        </view>
+      </template>
+
+      <template name="muchRadio">
+        <view class='details' hidden='{{h}}'>
+        <radio-group bindchange="selectHandler" data-c_idx="{{c_idx}}" data-g_idx="{{g_idx}}">
+
+          <block wx:for="{{d}}" wx:key="key" wx:for-item="cfg_item">
+            <view class='onShow border_bottom' data-config_id='{{cfg_item.config_id}}'>
+              <view class='flex_space_bet'>
+                <text class='onShow' style='width:85%;'>{{cfg_item.name_cn}}-${{cfg_item.price}}</text>
+               
+               <image src='../../images/doubt.png' bindtap='checkboxdoubtdetail' data-namecn='{{cfg_item.name_cn}}' data-ins_cn='{{cfg_item.ins_cn}}' class='doubt position_absolute' data-c_idx="{{c_idx}}" data-g_idx="{{g_idx}}"></image>
+              </view>
+              
+                <label class="standard_colors onShow position_relative" data-is_default='{{cfg_item.is_default}}'> 
+                  <image src='{{cfg_item.img}}' data-s_img='{{cfg_item.s_img}}' class='position_absolute'></image>
+                  <radio color="#af2027" class='position_absolute' name="checkbox1" value="{{cfg_item.config_id}}" checked='{{cfg_item.is_check == 1}}'></radio>
+                </label> 
+            </view>
+          </block>
+        </radio-group>
+        </view>
+      </template>
+ 
+      <!-- 加载checkBox模块 -->
+      <template name="singleCheckBox">
+        <view class='details' hidden='{{h}}'>
+        <checkbox-group bindchange="selectHandler" data-c_idx="{{c_idx}}" data-g_idx="{{g_idx}}">
+        
+          <block wx:for="{{d}}" wx:key="key" wx:for-item="cfg_item">
+            <view class='onShow border_bottom' data-is_default='{{cfg_item.is_default}}' data-config_id='{{cfg_item.config_id}}'>
+              <view class='flex_space_bet'>
+                <text class='onShow' style='width:85%;'>{{cfg_item.name_cn}}-${{cfg_item.price}}</text>
+                <image src='../../images/doubt.png' data-namecn='{{cfg_item.name_cn}}' data-ins_cn='{{cfg_item.ins_cn}}' bindtap='checkboxdoubtdetail' class='doubt'></image>
+              </view>
+              
+                <label class="standard_colors onShow position_relative"> 
+                  <image src='{{cfg_item.img}}' data-s_img='{{cfg_item.s_img}}' class='position_absolute'></image>
+                  <checkbox color="#af2027" class='position_absolute' name="checkbox1" value="{{cfg_item.config_id}}" checked='{{cfg_item.is_check == 1}}'></checkbox>
+                </label> 
+            </view>
+          </block>
+        </checkbox-group>
+        </view>
+      </template>
+
+      <template name="muchCheckBox">
+        <view class='details' hidden='{{h}}'>
+        <checkbox-group bindchange="selectHandler" data-c_idx="{{c_idx}}" data-g_idx="{{g_idx}}">
+        
+          <block wx:for="{{d}}" wx:key="key" wx:for-item="cfg_item">
+            <view class='onShow border_bottom' data-is_default='{{cfg_item.is_default}}' data-config_id='{{cfg_item.config_id}}'>
+              <view class='flex_space_bet'>
+                <text class='onShow' style='width:85%;'>{{cfg_item.name_cn}}-${{cfg_item.price}}</text>
+                <image src='../../images/doubt.png' data-namecn='{{cfg_item.name_cn}}' data-ins_cn='{{cfg_item.ins_cn}}' bindtap='checkboxdoubtdetail' class='doubt'></image>
+              </view>
+              
+                <label class="standard_colors onShow position_relative"> 
+                  <image src='{{cfg_item.img}}' data-s_img='{{cfg_item.s_img}}' class='position_absolute'></image>
+                  <checkbox color="#af2027" class='position_absolute' name="checkbox1" value="{{cfg_item.config_id}}" checked='{{cfg_item.is_check == 1}}'></checkbox>
+                </label> 
+            </view>
+          </block>
+        </checkbox-group>
+        </view>
+      </template>
+    </view>
+
+  </view>
+</block>
+<text class='submit_order text_center onShow' bindtap='showCollect'>显示汇总</text> 
+  <view class='w90 illustrate'>
+    <text class='onShow'>标配说明：</text>
+    {{carConfig.ins_cn}}
+  </view>
+</view>
